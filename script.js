@@ -9,7 +9,7 @@ document.head.appendChild(title)
 
 const favicon = document.createElement("link")
 favicon.rel = "shortcut icon"
-favicon.href = "/logo.png"
+favicon.href = "../../logo.png"
 favicon.type = "image/x-icon"
 document.head.appendChild(favicon)
 
