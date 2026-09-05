@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
+}
+html {
+    width: 100%;
+    height: 100%;
+}
+body {
+    width: 100%;
+    background-color: black;
+    text-align: center;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* padding-bottom: 200px; */
+}
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: dimgray;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: gray;
+}
+img {
+    max-width: 100%;
+    -webkit-user-drag: none;
+    image-rendering: pixelated;
+    margin: 50px 0;
+}
+p {
+    color: white;
+    margin-bottom: 20px;
+}
+a {
+    color: black;
+    text-decoration: none;
+    border: none;
+    font-weight: 600;
+    background-color: lightgray;
+    padding: 5px;
+    user-select: none;
+    cursor: pointer;
+}
+a:hover {
+    background-color: white;
+}
+.viewportSize {
+    width: 100%;
+    height: 100%;
+    min-height: fit-content;
+    align-content: center;
+}
+.space {
+    height: 50vh;
+}
+#imgView {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transition: 0.2s opacity;
+    opacity: 0;
+    pointer-events: none;
+    background: rgba(0,0,0, 0.5);
+    align-content: center;
+}
+#bigImg {
+    margin: 0;
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+}
+#nav {
+    margin-top: 10px;
+}
+#nextBtn, #backBtn {
+    position: relative;
+    bottom: 15px;
+}
+#backBtn {
+    margin-right: 10px;
+}
+.dialogue {
+    text-align: left;
+    width: 50%;
+}
