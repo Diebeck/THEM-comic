@@ -1,6 +1,6 @@
 const link = document.createElement("link")
 link.rel = "stylesheet"
-link.href = "/style.css"
+link.href = "../../style.css"
 document.head.appendChild(link)
 
 const title = document.createElement("title")
