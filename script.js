@@ -58,22 +58,30 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 async function checkPages() {
     let urlParts = window.location.pathname.split("/")
-    const currentPage = Number(urlParts[2])
+    urlParts.splice(0, 1)
+    urlParts.splice(urlParts.length-1, 1)
+    const currentPage = Number(urlParts[urlParts.length-1])
     const nextPage = currentPage + 1
     const previousPage = currentPage - 1
-    console.log(currentPage)
 
     nextBtn.style.visibility = "hidden"
     backBtn.style.visibility = "hidden"
-    let response = await fetch("/page/"+ nextPage)
+
+    let beginUrl = ""
+    for (let i=0; i<urlParts.length-1; i++) {
+        beginUrl += "/"+ urlParts[i]
+    }
+    beginUrl += "/"
+
+    let response = await fetch(beginUrl+ nextPage)
     if (response.ok) {
         nextBtn.style.visibility = "visible"
-        nextBtn.href = "/page/"+ nextPage
+        nextBtn.href = beginUrl+ nextPage
     }
-    response = await fetch("/page/"+ previousPage)
+    response = await fetch(beginUrl+ previousPage)
     if (response.ok) {
         backBtn.style.visibility = "visible"
-        backBtn.href = "/page/"+ previousPage
+        backBtn.href = beginUrl+ previousPage
     }
 }
 checkPages()
