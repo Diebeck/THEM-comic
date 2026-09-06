@@ -37,7 +37,34 @@ nextBtn.innerHTML = "Next"
 nextBtn.href = window.location.pathname
 nav.appendChild(nextBtn)
 
+function formatDialogs() {
+    const dialogs = document.querySelectorAll(".dialog")
+    for (let i=0; i<dialogs.length; i++) {
+        const dialog = dialogs[i]
+        let lines = dialog.innerHTML.split("\n")
+        lines.shift()
+        lines.pop()
+        const buffer = document.createElement("div")
+        for (let j=0; j<lines.length; j++) {
+            const line = lines[j].trimStart()
+            if (line == "") {
+                continue
+            }
+            const speaker = line.substring(0, line.indexOf(":"))
+            const text = line.substring(line.indexOf(":")+1, line.length).trimStart()
+            
+            const p = document.createElement("p")
+            p.className = speaker
+            p.innerHTML = text
+            buffer.appendChild(p)
+        }
+        dialog.innerHTML = buffer.innerHTML
+    }
+}
+
 document.addEventListener("DOMContentLoaded", function(event) {
+    formatDialogs()
+
     document.body.appendChild(imgView)
     document.body.appendChild(nav)
     const imgs = document.querySelectorAll("img")
@@ -55,11 +82,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 })
 
-
 async function checkPages() {
     let urlParts = window.location.pathname.split("/")
-    urlParts.splice(0, 1)
-    urlParts.splice(urlParts.length-1, 1)
+    urlParts.shift()
+    urlParts.pop()
     const currentPage = Number(urlParts[urlParts.length-1])
     const nextPage = currentPage + 1
     const previousPage = currentPage - 1
