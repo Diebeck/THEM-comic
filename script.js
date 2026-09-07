@@ -5,8 +5,13 @@ document.head.appendChild(meta)
 
 const link = document.createElement("link")
 link.rel = "stylesheet"
-link.href = "../../style.css"
+link.href = "../../assets/style.css"
 document.head.appendChild(link)
+
+const characters = document.createElement("link")
+characters.rel = "stylesheet"
+characters.href = "../../assets/characters.css"
+document.head.appendChild(characters)
 
 const title = document.createElement("title")
 title.innerHTML = "THEM"

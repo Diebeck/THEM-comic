@@ -1,0 +1,16 @@
+.small {
+    font-size: small;
+    opacity: 0.5;
+}
+.plum {
+    color: plum;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.gold {
+    color: gold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.lightb {
+    color: lightblue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
