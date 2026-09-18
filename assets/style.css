@@ -46,17 +46,16 @@ p {
     margin-bottom: 20px;
 }
 a {
-    color: black;
+    color: white;
     text-decoration: none;
     border: none;
     font-weight: 600;
-    background-color: lightgray;
-    padding: 5px;
+    padding: 5px 10px;
     user-select: none;
     cursor: pointer;
 }
 a:hover {
-    background-color: white;
+    background-color: rgba(255,255,255, 0.25);
 }
 b, i, span {
     font-family: inherit;
@@ -89,14 +88,13 @@ b, i, span {
     object-fit: contain;
 }
 #nav {
-    margin-top: 10px;
-}
-#nextBtn, #backBtn {
-    position: relative;
-    bottom: 15px;
-}
-#backBtn {
-    margin-right: 10px;
+    color: white;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    user-select: none;
 }
 .dialog {
     text-align: left;
