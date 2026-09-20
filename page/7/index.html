@@ -17,6 +17,7 @@
         <option value="Comic Sans MS">Comic Sans</option>
         <option value="Papyrus">Papyrus</option>
         <option value="Monocraft">Monocraft</option>
+        <option value="Beech">Beech</option>
         <option value="Evil">Evil</option>
         <option value="Rage">Rage</option>
         <option value="Wingdings">Wingdings</option>
@@ -36,6 +37,7 @@
         "Comic Sans MS": "World's most hated/loved",
         "Papyrus": "Nyeh heh heh!",
         "Monocraft": "I... Am Steve.",
+        "Beech": "What is this, some kind of corru observer?",
         "Evil": "this part of da comic hase been chosen 2 become... EVIL MODE!!!",
         "Rage": "u mad bro? }",
         "Wingdings": "Beware of the man who speaks in hands.",
@@ -51,7 +53,7 @@
                     } else {
                         rule.style.setProperty("font-family", select.value, "important")
                     }
-                    if (["Evil", "Rage", "NonDominant"].includes(select.value)) {
+                    if (["Evil", "Rage", "NonDominant", "Beech"].includes(select.value)) {
                         rule.style.setProperty("font-size", "xx-large")
                     } else {
                         rule.style.setProperty("font-size", "large")

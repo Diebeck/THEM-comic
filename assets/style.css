@@ -11,6 +11,10 @@
     src: url("fonts/Far_Chehre.ttf");
 }
 @font-face {
+    font-family: Beech;
+    src: url("fonts/Beech.TTF");
+}
+@font-face {
     font-family: Evil;
     src: url("fonts/Newspaper.ttf");
 }

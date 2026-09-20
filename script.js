@@ -115,7 +115,7 @@ window.onload = () => {
                 if (font != "Default") {
                     rule.style.setProperty("font-family", font, "important")
                 }
-                if (["Evil", "Rage", "NonDominant"].includes(font)) {
+                if (["Evil", "Rage", "NonDominant", "Beech"].includes(font)) {
                     rule.style.setProperty("font-size", "xx-large")
                 } else {
                     rule.style.setProperty("font-size", "large")
