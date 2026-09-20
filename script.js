@@ -117,13 +117,9 @@ window.onload = () => {
                 }
                 if (["Evil", "Rage", "NonDominant", "Beech"].includes(font)) {
                     rule.style.setProperty("font-size", "xx-large")
-                } else {
-                    rule.style.setProperty("font-size", "large")
                 }
                 if (["NonDominant"].includes(font)) {
                     rule.style.setProperty("font-weight", "bold")
-                } else {
-                    rule.style.setProperty("font-weight", "unset")
                 }
             }
         }
