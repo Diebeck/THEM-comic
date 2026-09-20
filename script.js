@@ -111,8 +111,11 @@ window.onload = () => {
     for (const sheet of document.styleSheets) {
         for (const rule of sheet.cssRules) {
             if (rule.selectorText === "*") {
+                if (localStorage.getItem("font") == null) {
+                    localStorage.setItem("font", "Default")
+                }
                 const font = localStorage.getItem("font")
-                if (font != "Default") {
+                if (font != "Default" && font != null) {
                     rule.style.setProperty("font-family", font, "important")
                 }
                 if (["Evil", "Rage", "NonDominant", "Beech"].includes(font)) {
@@ -127,7 +130,7 @@ window.onload = () => {
 }
 
 async function checkPages() {
-    let urlParts = location.pathname.split("/")
+    let urlParts = window.location.pathname.split("/")
     urlParts.shift()
     urlParts.pop()
     const currentPage = Number(urlParts[urlParts.length-1])
