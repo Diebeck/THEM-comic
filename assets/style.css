@@ -1,6 +1,32 @@
+:root {
+    --font: none;
+}
+/* FONTS */
+@font-face {
+    font-family: Monocraft;
+    src: url("fonts/Monocraft.ttf");
+}
+@font-face {
+    font-family: Rage;
+    src: url("fonts/Far_Chehre.ttf");
+}
+@font-face {
+    font-family: Evil;
+    src: url("fonts/Newspaper.ttf");
+}
+@font-face {
+    font-family: OpenDyslexic;
+    src: url("fonts/OpenDyslexic.otf");
+}
+@font-face {
+    font-family: NonDominant;
+    src: url("fonts/MyHandwritingRightHanded.ttf");
+}
+
 * {
     margin: 0;
     padding: 0;
+    color: white;
     font-size: large;
     font-family: 'Courier New', Courier, monospace;
 }
@@ -41,12 +67,19 @@ img {
     image-rendering: pixelated;
     margin: 50px 0;
 }
-p {
+h1, h2 {
     color: white;
+}
+h1 {
+    font-size: xx-large;
+}
+h2 {
+    font-size: larger;
+}
+p {
     margin-bottom: 20px;
 }
 a {
-    color: white;
     text-decoration: none;
     border: none;
     font-weight: 600;
@@ -57,9 +90,18 @@ a {
 a:hover {
     background-color: rgba(255,255,255, 0.25);
 }
-b, i, span {
+b, i, span, sub, sup {
+    color: inherit;
     font-family: inherit;
 }
+select {
+    background: none;
+    padding: 5px;
+}
+option {
+    background: black;
+}
+
 .viewportSize {
     width: 100vw;
     height: 100vh;
@@ -88,7 +130,6 @@ b, i, span {
     object-fit: contain;
 }
 #nav {
-    color: white;
     margin: 10px 0;
     display: flex;
     justify-content: center;
@@ -99,6 +140,7 @@ b, i, span {
 .dialog {
     text-align: left;
     width: 50%;
+    overflow: visible;
 }
 @media (max-width: 500px) {
     .dialog {

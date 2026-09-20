@@ -106,6 +106,28 @@ window.onload = () => {
             })
         }
     }
+
+    // Sets font from localStorage
+    for (const sheet of document.styleSheets) {
+        for (const rule of sheet.cssRules) {
+            if (rule.selectorText === "*") {
+                const font = localStorage.getItem("font")
+                if (font != "Default") {
+                    rule.style.setProperty("font-family", font, "important")
+                }
+                if (["Evil", "Rage", "NonDominant"].includes(font)) {
+                    rule.style.setProperty("font-size", "xx-large")
+                } else {
+                    rule.style.setProperty("font-size", "large")
+                }
+                if (["NonDominant"].includes(font)) {
+                    rule.style.setProperty("font-weight", "bold")
+                } else {
+                    rule.style.setProperty("font-weight", "unset")
+                }
+            }
+        }
+    }
 }
 
 async function checkPages() {

@@ -1,0 +1,70 @@
+<script src="../../script.js" ></script>
+
+<style>
+    
+</style>
+
+<div class="viewportSize">
+    <h1>FONT SELECTION</h1>
+    <br>
+    <p>Here is a curated selection of fonts for your enjoyment.</p>
+    <p>Beware: Dialog contains multiple fonts used by different characters. Choosing a font will turn all text into that font.</p>
+    <p>There is mainly Monospace, OpenDyslexic, and a few funny ones.</p>
+    <select id="select" style="margin-bottom: 20px;">
+        <option value="Default">Default</option>
+        <option value="Monospace">Monospace</option>
+        <option value="OpenDyslexic">OpenDyslexic</option>
+        <option value="Comic Sans MS">Comic Sans</option>
+        <option value="Papyrus">Papyrus</option>
+        <option value="Monocraft">Monocraft</option>
+        <option value="Evil">Evil</option>
+        <option value="Rage">Rage</option>
+        <option value="Wingdings">Wingdings</option>
+        <option value="NonDominant">Non-Dominant Writing</option>
+    </select>
+    <p id="flavor"></p>
+</div>
+
+<script>
+    const select = document.getElementById("select")
+    select.value = localStorage.getItem("font")
+    const flavor = document.getElementById("flavor")
+    const flavorTexts = {
+        "Default": "Vanilla is still a flavor.",
+        "Monospace": "For the terminal enthusiasts.",
+        "OpenDyslexic": "When is ClosedDyslexic coming out?",
+        "Comic Sans MS": "World's most hated/loved",
+        "Papyrus": "Nyeh heh heh!",
+        "Monocraft": "I... Am Steve.",
+        "Evil": "this part of da comic hase been chosen 2 become... EVIL MODE!!!",
+        "Rage": "u mad bro? }",
+        "Wingdings": "Beware of the man who speaks in hands.",
+        "NonDominant": "Good luck.",
+    }
+    flavor.innerHTML = flavorTexts[select.value]
+    select.addEventListener("change", (e) => {
+        for (const sheet of document.styleSheets) {
+            for (const rule of sheet.cssRules) {
+                if (rule.selectorText === "*") {
+                    if (select.value == "Default") {
+                        rule.style.setProperty("font-family", "'Courier New', Courier, monospace")
+                    } else {
+                        rule.style.setProperty("font-family", select.value, "important")
+                    }
+                    if (["Evil", "Rage", "NonDominant"].includes(select.value)) {
+                        rule.style.setProperty("font-size", "xx-large")
+                    } else {
+                        rule.style.setProperty("font-size", "large")
+                    }
+                    if (["NonDominant"].includes(select.value)) {
+                        rule.style.setProperty("font-weight", "bold")
+                    } else {
+                        rule.style.setProperty("font-weight", "unset")
+                    }
+                    localStorage.setItem("font", select.value)
+                }
+            }
+        }
+        flavor.innerHTML = flavorTexts[select.value]
+    })
+</script>
