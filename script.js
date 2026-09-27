@@ -130,33 +130,50 @@ window.onload = () => {
     }
 }
 
+let currentPage
+let nextPage
+let prevPage
+let beginUrl = ""
+let nextExists = false
+let prevExists = false
+
 async function checkPages() {
     let urlParts = window.location.pathname.split("/")
     urlParts.shift()
     urlParts.pop()
-    const currentPage = Number(urlParts[urlParts.length-1])
-    const nextPage = currentPage + 1
-    const previousPage = currentPage - 1
-
+    currentPage = Number(urlParts[urlParts.length-1])
+    nextPage = currentPage + 1
+    prevPage = currentPage - 1
+    
     nextBtn.style.visibility = "hidden"
     backBtn.style.visibility = "hidden"
-
-    let beginUrl = ""
+    
     for (let i=0; i<urlParts.length-1; i++) {
         beginUrl += "/"+ urlParts[i]
     }
     beginUrl += "/"
-
+    
     pageNum.innerHTML = currentPage
-    let response = await fetch(beginUrl+ nextPage)
+    let response = await fetch(beginUrl + nextPage)
     if (response.ok) {
+        nextExists = true
         nextBtn.style.visibility = "visible"
-        nextBtn.href = beginUrl+ nextPage
+        nextBtn.href = beginUrl + nextPage
     }
-    response = await fetch(beginUrl+ previousPage)
+    response = await fetch(beginUrl + prevPage)
     if (response.ok) {
+        prevExists = true
         backBtn.style.visibility = "visible"
-        backBtn.href = beginUrl+ previousPage
+        backBtn.href = beginUrl + prevPage
     }
 }
 checkPages()
+
+// Handles left/right arrow keys going to previous/next page
+document.onkeydown = function(e) {
+    if (e.key == "ArrowRight" && nextExists) {
+        window.location.href = beginUrl + nextPage
+    } else if (e.key == "ArrowLeft" && prevExists) {
+        window.location.href = beginUrl + prevPage
+    } 
+}
