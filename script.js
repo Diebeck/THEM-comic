@@ -4,11 +4,12 @@ meta.name = "viewport"
 meta.content = "width=device-width, initial-scale=1"
 document.head.appendChild(meta)
 
-// CSS
+// Deprecated; every file now has its own css link to evade FOUC
+/* // CSS
 const link = document.createElement("link")
 link.rel = "stylesheet"
 link.href = "../../assets/style.css"
-document.head.appendChild(link)
+document.head.appendChild(link) */
 
 // Characters CSS
 const characters = document.createElement("link")
