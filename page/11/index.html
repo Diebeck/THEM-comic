@@ -1,0 +1,44 @@
+<script src="../../script.js" ></script><link rel="stylesheet" href="../../assets/style.css">
+
+<script>
+    const first = [
+        "Ode",
+        "Homage",
+        "Tribute"
+    ]
+    const second = [
+        "a friend",
+        "a madman",
+        "the misunderstood",
+        "the enlightened"
+    ]
+    function getRandom(array) {
+        return array[Math.floor(Math.random()*array.length)]
+    }
+    setInterval(function() {
+        document.getElementById("title").innerHTML = `"${getRandom(first)} to ${getRandom(second)}"`
+    }, 1000)
+</script>
+
+<div class="viewportSize">
+    <h1 id="title">"Ode to a friend"</h1>
+</div>
+
+<img src="img/digital.png">
+
+<div class="space"></div>
+
+<img src="img/paper.png">
+
+<div class="space"></div>
+<img src="img/1.png">
+<div class="space"></div>
+<img src="img/2.png">
+<div class="space"></div>
+<img src="img/3.png">
+
+<div class="viewportSize">
+    <p>I have a friend that speaks, writes, and thinks, in a way I have never seen from anyone else.</p>
+    <p>I find it very interesting.</p>
+    <p>Never change, friend.</p>
+</div>
